@@ -10,12 +10,12 @@ final(concluded) STT 결과를 받아서:
 import asyncio
 import json
 import logging
+from datetime import datetime, timezone
 
 import httpx
 from livekit import rtc
 
 from db import queries
-from db.timeutil import now_kst
 from stt.base import FinalTranscript
 
 logger = logging.getLogger(__name__)
@@ -52,10 +52,9 @@ class SubtitleProcessor:
         concluded 1건 처리.
         번역은 이미 transcript에 들어있으니 INSERT 한 번으로 끝.
         """
-        # 시퀀스 채번 — call_session 단위로 화자 구분 없이 1씩 증가
-        # (DB unique key가 (call_session_id, sequence)라 화자별로 나누면 충돌)
-        self._seq["sequence"] = self._seq.get("sequence", 0) + 1
-        seq = self._seq["sequence"]
+        # 시퀀스 채번
+        self._seq[speaker_id] = self._seq.get(speaker_id, 0) + 1
+        seq = self._seq[speaker_id]
 
         # 1. ai_subtitle INSERT (원문 + 번역 한 번에)
         subtitle_id = await queries.insert_subtitle(
@@ -71,15 +70,16 @@ class SubtitleProcessor:
             translated_lang=transcript.translated_lang,
         )
 
-        # 2. 감지 (백그라운드) — detect_fn이 설정된 경우에만
-        if self._detect is not None:
-            asyncio.create_task(
-                self._detect_and_notify(
-                    subtitle_id=subtitle_id,
-                    text=transcript.text,
-                    lang=transcript.language,
-                )
+        subtitle_id = seq 
+
+        # 2. 감지 (백그라운드)
+        asyncio.create_task(
+            self._detect_and_notify(
+                subtitle_id=subtitle_id,
+                text=transcript.text,
+                lang=transcript.language,
             )
+        )
 
         # 3. Data Channel push
         payload = json.dumps({
@@ -117,7 +117,7 @@ class SubtitleProcessor:
                 risk_type=result["risk_type"],
                 risk_level=result["risk_level"],
                 reason=result["reason"],
-                detected_at=now_kst(),
+                detected_at=datetime.now(timezone.utc),
             )
 
             await self._notify_spring(moderation_id, subtitle_id, result)

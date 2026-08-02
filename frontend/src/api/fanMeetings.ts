@@ -55,8 +55,7 @@ export type PublicFanMeetingDetail = {
     status: FanMeetingDetailStatus
     influencerId: number
     title: string
-    /** 백엔드에서 소개가 비어 있으면 null로 내려온다. */
-    description: string | null
+    description: string
     coverImageUrl: string | null
     scheduledStartAt: string
     application: {
@@ -67,8 +66,7 @@ export type PublicFanMeetingDetail = {
       capacity: number
     }
     operation: {
-      /** 대기실 개방 시각이며 아직 설정되지 않았으면 null이다. */
-      queueOpenAt: string | null
+      queueOpenAt: string
       callDurationSec: number
       recordingEnabled: boolean
       translationEnabled: boolean
@@ -237,7 +235,7 @@ function parseDetail(value: unknown): PublicFanMeetingDetail {
         'meeting.influencerId',
       ),
       title: readString(meeting.title, 'meeting.title'),
-      description: readNullableString(meeting.description, 'meeting.description'),
+      description: readString(meeting.description, 'meeting.description'),
       coverImageUrl: readNullableString(
         meeting.coverImageUrl,
         'meeting.coverImageUrl',
@@ -269,7 +267,7 @@ function parseDetail(value: unknown): PublicFanMeetingDetail {
         ),
       },
       operation: {
-        queueOpenAt: readNullableString(
+        queueOpenAt: readString(
           operation.queueOpenAt,
           'meeting.operation.queueOpenAt',
         ),

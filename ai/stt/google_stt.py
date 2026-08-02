@@ -7,11 +7,12 @@ translated_text는 항상 None.
 import asyncio
 import logging
 import os
-
 from google.oauth2 import service_account
 from google.cloud import speech_v1 as speech
+from datetime import datetime, timezone
 
-from db.timeutil import now_kst
+from google.cloud import speech_v1 as speech
+
 from stt.base import STTAdapter, FinalTranscript
 
 logger = logging.getLogger(__name__)
@@ -89,7 +90,7 @@ class GoogleSTTAdapter(STTAdapter):
                             transcript = FinalTranscript(
                                 text=text,
                                 language=language,
-                                spoken_at=now_kst(),
+                                spoken_at=datetime.now(timezone.utc),
                                 translated_text=None, # 한-한 미팅인 경우 번역 필요 없음
                                 translated_lang=None,
                             )

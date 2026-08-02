@@ -17,7 +17,6 @@ import com.ssafy.backend.post.dto.NoticeCreateResponse;
 import com.ssafy.backend.post.dto.PostDeleteResponse;
 import com.ssafy.backend.post.dto.PostUpdateRequest;
 import com.ssafy.backend.post.dto.PostUpdateResponse;
-import com.ssafy.backend.post.repository.AttachmentRepository;
 import com.ssafy.backend.post.repository.PostRepository;
 import com.ssafy.backend.user.domain.PreferredLanguage;
 import com.ssafy.backend.user.domain.User;
@@ -58,7 +57,6 @@ class PostCommandServiceTest {
     private CurrentUserService currentUserService;
     private MeetingAccessService meetingAccessService;
     private PostRepository postRepository;
-    private AttachmentRepository attachmentRepository;
     private PostCommandService commandService;
 
     /** 각 테스트마다 mock 협력 객체로 공지 작성 서비스를 새로 구성한다. */
@@ -67,10 +65,8 @@ class PostCommandServiceTest {
         currentUserService = mock(CurrentUserService.class);
         meetingAccessService = mock(MeetingAccessService.class);
         postRepository = mock(PostRepository.class);
-        attachmentRepository = mock(AttachmentRepository.class);
         commandService = new PostCommandService(
-                currentUserService, meetingAccessService, postRepository,
-                new AttachmentLinkService(attachmentRepository), CLOCK
+                currentUserService, meetingAccessService, postRepository, CLOCK
         );
     }
 
@@ -89,7 +85,7 @@ class PostCommandServiceTest {
         });
 
         NoticeCreateResponse response = commandService.createMeetingNotice(
-                MEETING_ID, new NoticeCreateRequest("공지 제목", "공지 본문", null), MANAGER_PRINCIPAL
+                MEETING_ID, new NoticeCreateRequest("공지 제목", "공지 본문"), MANAGER_PRINCIPAL
         );
 
         ArgumentCaptor<Post> captor = ArgumentCaptor.forClass(Post.class);
@@ -115,7 +111,7 @@ class PostCommandServiceTest {
         when(postRepository.save(any(Post.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
         commandService.createMeetingNotice(
-                MEETING_ID, new NoticeCreateRequest("  제목  ", "  본문  ", null), MANAGER_PRINCIPAL
+                MEETING_ID, new NoticeCreateRequest("  제목  ", "  본문  "), MANAGER_PRINCIPAL
         );
 
         ArgumentCaptor<Post> captor = ArgumentCaptor.forClass(Post.class);
@@ -133,7 +129,7 @@ class PostCommandServiceTest {
                 .thenThrow(new BusinessException(ErrorCode.ACCESS_DENIED));
 
         assertThatThrownBy(() -> commandService.createMeetingNotice(
-                MEETING_ID, new NoticeCreateRequest("제목", "본문", null), MANAGER_PRINCIPAL
+                MEETING_ID, new NoticeCreateRequest("제목", "본문"), MANAGER_PRINCIPAL
         ))
                 .isInstanceOf(BusinessException.class)
                 .extracting(exception -> ((BusinessException) exception).getErrorCode())
@@ -150,7 +146,7 @@ class PostCommandServiceTest {
                 .thenThrow(new BusinessException(ErrorCode.FAN_MEETING_NOT_FOUND));
 
         assertThatThrownBy(() -> commandService.createMeetingNotice(
-                MEETING_ID, new NoticeCreateRequest("제목", "본문", null), MANAGER_PRINCIPAL
+                MEETING_ID, new NoticeCreateRequest("제목", "본문"), MANAGER_PRINCIPAL
         ))
                 .isInstanceOf(BusinessException.class)
                 .extracting(exception -> ((BusinessException) exception).getErrorCode())
@@ -168,7 +164,7 @@ class PostCommandServiceTest {
         when(meetingAccessService.requireOperator(MEETING_ID, author)).thenReturn(meeting);
 
         assertThatThrownBy(() -> commandService.createMeetingNotice(
-                MEETING_ID, new NoticeCreateRequest("제목", "본문", null), MANAGER_PRINCIPAL
+                MEETING_ID, new NoticeCreateRequest("제목", "본문"), MANAGER_PRINCIPAL
         ))
                 .isInstanceOf(BusinessException.class)
                 .extracting(exception -> ((BusinessException) exception).getErrorCode())
@@ -185,7 +181,7 @@ class PostCommandServiceTest {
                 .thenReturn(meeting(FanMeetingStatus.CANCELED));
 
         assertThatThrownBy(() -> commandService.createMeetingNotice(
-                MEETING_ID, new NoticeCreateRequest("제목", "본문", null), MANAGER_PRINCIPAL
+                MEETING_ID, new NoticeCreateRequest("제목", "본문"), MANAGER_PRINCIPAL
         ))
                 .isInstanceOf(BusinessException.class)
                 .extracting(exception -> ((BusinessException) exception).getErrorCode())
@@ -200,7 +196,7 @@ class PostCommandServiceTest {
                 .thenThrow(new BusinessException(ErrorCode.AUTHENTICATION_REQUIRED));
 
         assertThatThrownBy(() -> commandService.createMeetingNotice(
-                MEETING_ID, new NoticeCreateRequest("제목", "본문", null), null
+                MEETING_ID, new NoticeCreateRequest("제목", "본문"), null
         ))
                 .isInstanceOf(BusinessException.class)
                 .extracting(exception -> ((BusinessException) exception).getErrorCode())
@@ -264,7 +260,7 @@ class PostCommandServiceTest {
         when(postRepository.findDetailById(300L)).thenReturn(Optional.of(notice));
 
         PostUpdateResponse response = commandService.updateMeetingNotice(
-                MEETING_ID, 300L, new PostUpdateRequest("  새 제목  ", null, null), MANAGER_PRINCIPAL
+                MEETING_ID, 300L, new PostUpdateRequest("  새 제목  ", null), MANAGER_PRINCIPAL
         );
 
         assertThat(notice.getTitle()).isEqualTo("새 제목");
@@ -283,7 +279,7 @@ class PostCommandServiceTest {
         when(postRepository.findDetailById(300L)).thenReturn(Optional.of(notice));
 
         assertThatThrownBy(() -> commandService.updateMeetingNotice(
-                MEETING_ID, 300L, new PostUpdateRequest("남의 공지", null, null), principal))
+                MEETING_ID, 300L, new PostUpdateRequest("남의 공지", null), principal))
                 .isInstanceOf(BusinessException.class)
                 .extracting(exception -> ((BusinessException) exception).getErrorCode())
                 .isEqualTo(ErrorCode.ACCESS_DENIED);
@@ -298,7 +294,7 @@ class PostCommandServiceTest {
         when(postRepository.findDetailById(300L)).thenReturn(Optional.of(notice(1L)));
 
         assertThatThrownBy(() -> commandService.updateMeetingNotice(
-                MEETING_ID + 1, 300L, new PostUpdateRequest("제목", null, null), MANAGER_PRINCIPAL))
+                MEETING_ID + 1, 300L, new PostUpdateRequest("제목", null), MANAGER_PRINCIPAL))
                 .isInstanceOf(BusinessException.class)
                 .extracting(exception -> ((BusinessException) exception).getErrorCode())
                 .isEqualTo(ErrorCode.POST_NOT_FOUND);
@@ -347,7 +343,7 @@ class PostCommandServiceTest {
         when(postRepository.findDetailById(400L)).thenReturn(Optional.of(post));
 
         commandService.updateCommunityPost(
-                400L, new PostUpdateRequest(null, "  새 본문  ", null), MANAGER_PRINCIPAL);
+                400L, new PostUpdateRequest(null, "  새 본문  "), MANAGER_PRINCIPAL);
 
         assertThat(post.getTitle()).isEqualTo("커뮤니티 제목");
         assertThat(post.getContent()).isEqualTo("새 본문");
@@ -363,7 +359,7 @@ class PostCommandServiceTest {
         when(postRepository.findDetailById(400L)).thenReturn(Optional.of(post));
 
         assertThatThrownBy(() -> commandService.updateCommunityPost(
-                400L, new PostUpdateRequest("남의 글", null, null), principal))
+                400L, new PostUpdateRequest("남의 글", null), principal))
                 .isInstanceOf(BusinessException.class)
                 .extracting(exception -> ((BusinessException) exception).getErrorCode())
                 .isEqualTo(ErrorCode.ACCESS_DENIED);

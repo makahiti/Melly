@@ -14,10 +14,6 @@ import { DeviceCheckPage } from '../pages/common/DeviceCheckPage'
 import { FanMeetingCommunityPage } from '../pages/common/FanMeetingCommunityPage'
 import { LiveKitTestPage } from '../pages/common/LiveKitTestPage'
 import { NotificationsPage } from '../pages/common/NotificationsPage'
-import {
-  ServiceNoticeDetailPage,
-  ServiceNoticesPage,
-} from '../pages/common/ServiceNoticesPage'
 import { YestalgiaHomeExamplePage } from '../pages/common/YestalgiaHomeExamplePage'
 import {
   ForbiddenPage,
@@ -47,20 +43,23 @@ import { InfluencerProfilePage } from '../pages/influencer/InfluencerProfilePage
 import { InfluencerMeetingHistoryPage } from '../pages/influencer/InfluencerMeetingHistoryPage'
 import { InfluencerOrganizationInvitationPage } from '../pages/influencer/InfluencerOrganizationInvitationPage'
 import {
-  ManagerMeetingCreatePage,
+  ManagerApplicationsPage,
+  ManagerEventCreatePage,
+  ManagerEventEditPage,
+  ManagerEventListPage,
+  ManagerMeetingSettingsPage,
   ManagerMyPage,
   ManagerNoticesPage,
   ManagerRiskIncidentPage,
   ManagerStatisticsPage,
 } from '../pages/manager/ManagerRoutePages'
 import { ManagerMeetingListPage } from '../pages/manager/ManagerMeetingListPage'
-import { ManagerMeetingDetailPage } from '../pages/manager/ManagerMeetingDetailPage'
+import {
+  ManagerEventHubPage,
+  ManagerMeetingHubPage,
+} from '../pages/manager/ManagerManagementHubPage'
 import { ManagerMeetingMonitorPage as LiveManagerMeetingMonitorPage } from '../pages/manager/ManagerMeetingMonitorPage'
 import { ManagerOrganizationPage } from '../pages/manager/ManagerOrganizationPage'
-import {
-  LegacyEventRedirect,
-  LegacyMeetingSettingsRedirect,
-} from './legacyRedirects'
 
 /**
  * 브라우저 URL과 페이지 컴포넌트를 연결하는 애플리케이션 최상위 라우터다.
@@ -117,27 +116,17 @@ export const router = createBrowserRouter([
         path: 'fan/events',
         Component: FanEventListPage,
       },
-      // 팬 화면 용어는 '이벤트'를 유지하되, 실제 식별자는 팬미팅 ID이므로 파라미터명을 통일한다.
       {
-        path: 'fan/events/:meetingId',
+        path: 'fan/events/:eventId',
         Component: FanEventDetailPage,
       },
       {
-        path: 'fan/events/:meetingId/application-result',
+        path: 'fan/events/:eventId/application-result',
         Component: FanApplicationResultPage,
       },
       {
         path: 'notifications',
         Component: NotificationsPage,
-      },
-      // 서비스 공지는 로그인 없이도 볼 수 있는 공개 화면이다.
-      {
-        path: 'service-notices',
-        Component: ServiceNoticesPage,
-      },
-      {
-        path: 'service-notices/:noticeId',
-        Component: ServiceNoticeDetailPage,
       },
       {
         path: 'community/posts/:postId',
@@ -252,46 +241,42 @@ export const router = createBrowserRouter([
             index: true,
             element: <Navigate replace to="fan-meetings" />,
           },
-          // 홍보·응모와 팬미팅은 같은 한 건이므로 관리 화면도 fan-meetings 하나로 통합한다.
           {
             path: 'events',
-            element: <LegacyEventRedirect />,
+            Component: ManagerEventHubPage,
           },
           {
             path: 'events/manage',
-            element: <LegacyEventRedirect />,
+            Component: ManagerEventListPage,
           },
           {
             path: 'events/new',
-            element: <Navigate replace to="/manager/fan-meetings/new" />,
+            Component: ManagerEventCreatePage,
           },
           {
             path: 'events/:eventId/edit',
-            element: <LegacyEventRedirect tab="settings" />,
+            Component: ManagerEventEditPage,
           },
           {
             path: 'events/:eventId/applications',
-            element: <LegacyEventRedirect tab="applicants" />,
+            Component: ManagerApplicationsPage,
           },
           {
             path: 'fan-meetings',
-            Component: ManagerMeetingListPage,
+            Component: ManagerMeetingHubPage,
           },
           {
             path: 'fan-meetings/manage',
-            element: <Navigate replace to="/manager/fan-meetings" />,
+            Component: ManagerMeetingListPage,
           },
           {
             path: 'fan-meetings/new',
-            Component: ManagerMeetingCreatePage,
-          },
-          {
-            path: 'fan-meetings/:fanMeetingId',
-            Component: ManagerMeetingDetailPage,
+            // 예전 팬미팅 생성 주소를 북마크한 사용자를 실제 이벤트 생성 흐름으로 보낸다.
+            element: <Navigate replace to="/manager/events/new" />,
           },
           {
             path: 'fan-meetings/:fanMeetingId/edit',
-            element: <LegacyMeetingSettingsRedirect />,
+            Component: ManagerMeetingSettingsPage,
           },
           {
             path: 'fan-meetings/:fanMeetingId/notices',

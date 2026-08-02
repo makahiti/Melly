@@ -227,7 +227,6 @@ export function DeviceCheckPage() {
     }
   }
 
-  /** 장비 점검 결과를 저장한 뒤 역할에 따라 준비실(인플루언서) 또는 대기실(팬)로 이동한다. */
   async function handleEnterQueue() {
     if (isEnteringQueue) return
 
@@ -236,10 +235,12 @@ export function DeviceCheckPage() {
       return
     }
 
-    const isInfluencerRole =
-      session.role === 'INFLUENCER' || session.role === 'SOLO_INFLUENCER'
+    if (session.role === 'INFLUENCER' || session.role === 'SOLO_INFLUENCER') {
+      navigate(`/influencer/fan-meetings/${encodeURIComponent(meetingId)}/ready`)
+      return
+    }
 
-    if (!isInfluencerRole && session.role !== 'FAN') {
+    if (session.role !== 'FAN') {
       setQueueError('팬 또는 인플루언서 계정으로 로그인해 주세요.')
       return
     }
@@ -249,7 +250,6 @@ export function DeviceCheckPage() {
     setDeviceCheckWarning(undefined)
 
     // 장비 점검 결과를 기록한다. 서버 저장에 실패해도 입장은 막지 않는다.
-    // 준비실·대기실에서 같은 장치로 미리보기를 복원할 수 있도록 선택한 장치 ID도 함께 남긴다.
     const speakerOk = speakerOptions.length > 0 ? true : null
     const checkRecord = {
       cameraOk: Boolean(videoTrackReady),
@@ -257,9 +257,6 @@ export function DeviceCheckPage() {
       speakerOk,
       networkOk: networkReady,
       checkedAt: new Date().toISOString(),
-      cameraDeviceId: selectedCameraId,
-      microphoneDeviceId: selectedMicrophoneId,
-      speakerDeviceId: selectedSpeakerId,
     }
 
     try {
@@ -283,19 +280,9 @@ export function DeviceCheckPage() {
         session.accessToken,
       )
     } catch {
-      // 참가자 전용 저장 API가 인플루언서 요청을 거부할 수 있으므로 팬에게만 경고를 보여준다.
-      if (!isInfluencerRole) {
-        setDeviceCheckWarning(
-          '장비 점검 결과를 서버에 저장하지 못했습니다. 입장은 계속 진행됩니다.',
-        )
-      }
-    }
-
-    // 인플루언서는 대기열 입장 없이 준비실로 이동한다.
-    if (isInfluencerRole) {
-      setIsEnteringQueue(false)
-      navigate(`/influencer/fan-meetings/${encodeURIComponent(meetingId)}/ready`)
-      return
+      setDeviceCheckWarning(
+        '장비 점검 결과를 서버에 저장하지 못했습니다. 입장은 계속 진행됩니다.',
+      )
     }
 
     try {
