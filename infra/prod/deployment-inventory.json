@@ -1,0 +1,384 @@
+{
+  "captured_at_utc": "2026-08-12T03:05:11Z",
+  "source_commit": "b9f1cc3d9d857c5273ee39b24e6cb1208e9472e1",
+  "source_branch": "lab",
+  "compose_project": "project",
+  "services": [
+    {
+      "name": "ai-agent",
+      "image": "melly-ai-agent:local",
+      "image_id": "sha256:23cffed8e75721083fa194441bc3a9010b4feeeeaa87167b918219ad1a4cb878",
+      "status": "running",
+      "health": null,
+      "restart_policy": "unless-stopped",
+      "ports": [],
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "${PROJECT_ROOT}/secrets/google-credentials.json",
+          "destination": "/app/secrets/google-credentials.json",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "${ZONEINFO}/Asia/Seoul",
+          "destination": "/etc/localtime",
+          "read_only": true
+        }
+      ],
+      "networks": [
+        "project_melly-network"
+      ]
+    },
+    {
+      "name": "backend",
+      "image": "melly-backend:local",
+      "image_id": "sha256:c19dc3b2e9f031c26e248124006d9945335c34728f7a916cc56563a881765abe",
+      "status": "running",
+      "health": null,
+      "restart_policy": "unless-stopped",
+      "ports": [
+        {
+          "container": "8080/tcp",
+          "host": []
+        }
+      ],
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "${MELLY_DATA}/uploads",
+          "destination": "/srv/melly/uploads",
+          "read_only": false
+        },
+        {
+          "type": "bind",
+          "source": "${MELLY_DATA}/attachments",
+          "destination": "/srv/melly/attachments",
+          "read_only": false
+        }
+      ],
+      "networks": [
+        "project_melly-network"
+      ]
+    },
+    {
+      "name": "frontend",
+      "image": "melly-frontend:local",
+      "image_id": "sha256:b1a3e9884941d633e7748372fecd28efb656c36c13a7c7d346131bdd37fba859",
+      "status": "running",
+      "health": "healthy",
+      "restart_policy": "unless-stopped",
+      "ports": [
+        {
+          "container": "80/tcp",
+          "host": []
+        }
+      ],
+      "mounts": [],
+      "networks": [
+        "project_melly-network"
+      ]
+    },
+    {
+      "name": "jenkins",
+      "image": "melly-jenkins:local",
+      "image_id": "sha256:6a677882c4fa8f8894d1920fee7df118d8a68a04f132c63d83ae7364ca8b6821",
+      "status": "running",
+      "health": null,
+      "restart_policy": "unless-stopped",
+      "ports": [
+        {
+          "container": "50000/tcp",
+          "host": [
+            {
+              "ip": "0.0.0.0",
+              "port": "50000"
+            },
+            {
+              "ip": "::",
+              "port": "50000"
+            }
+          ]
+        },
+        {
+          "container": "8080/tcp",
+          "host": []
+        }
+      ],
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "${DOCKER_SOCKET}",
+          "destination": "/var/run/docker.sock",
+          "read_only": false
+        },
+        {
+          "type": "bind",
+          "source": "${PROJECT_ROOT}",
+          "destination": "/home/ubuntu/docker/project",
+          "read_only": false
+        },
+        {
+          "type": "bind",
+          "source": "${PROJECT_ROOT}/jenkins_home",
+          "destination": "/var/jenkins_home",
+          "read_only": false
+        }
+      ],
+      "networks": [
+        "project_melly-network"
+      ]
+    },
+    {
+      "name": "livekit",
+      "image": "livekit/livekit-server:v1.13.4",
+      "image_id": "sha256:189f7c81b704a36642bc5c7e2d3e1ae83744627c11978a23a251bf19fbec64e0",
+      "status": "running",
+      "health": null,
+      "restart_policy": "unless-stopped",
+      "ports": [
+        {
+          "container": "7880/tcp",
+          "host": []
+        },
+        {
+          "container": "7881/tcp",
+          "host": [
+            {
+              "ip": "0.0.0.0",
+              "port": "7881"
+            },
+            {
+              "ip": "::",
+              "port": "7881"
+            }
+          ]
+        },
+        {
+          "container": "7882/udp",
+          "host": [
+            {
+              "ip": "0.0.0.0",
+              "port": "7882"
+            },
+            {
+              "ip": "::",
+              "port": "7882"
+            }
+          ]
+        }
+      ],
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "${ZONEINFO}/Asia/Seoul",
+          "destination": "/etc/localtime",
+          "read_only": true
+        }
+      ],
+      "networks": [
+        "project_melly-network"
+      ]
+    },
+    {
+      "name": "livekit-egress",
+      "image": "livekit/egress:v1.13.0",
+      "image_id": "sha256:980ff439431df2c773573721ab6da19e15bdc1f049ab7cb80e87470bf174c12f",
+      "status": "running",
+      "health": "healthy",
+      "restart_policy": "unless-stopped",
+      "ports": [
+        {
+          "container": "8081/tcp",
+          "host": []
+        },
+        {
+          "container": "9090/tcp",
+          "host": []
+        }
+      ],
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "${MELLY_DATA}/uploads",
+          "destination": "/out",
+          "read_only": false
+        }
+      ],
+      "networks": [
+        "project_melly-network"
+      ]
+    },
+    {
+      "name": "mysql",
+      "image": "mysql:8.4",
+      "image_id": "sha256:c592c15aaf4a1961e15d82eb31ea5987dda862d1c4b1e93424438c0e91dc1f8d",
+      "status": "running",
+      "health": "healthy",
+      "restart_policy": "unless-stopped",
+      "ports": [
+        {
+          "container": "3306/tcp",
+          "host": [
+            {
+              "ip": "127.0.0.1",
+              "port": "3307"
+            }
+          ]
+        },
+        {
+          "container": "33060/tcp",
+          "host": []
+        }
+      ],
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "${PROJECT_ROOT}/mysql/data",
+          "destination": "/var/lib/mysql",
+          "read_only": false
+        }
+      ],
+      "networks": [
+        "project_melly-network"
+      ]
+    },
+    {
+      "name": "nginx",
+      "image": "nginx:1.27-alpine",
+      "image_id": "sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10",
+      "status": "running",
+      "health": null,
+      "restart_policy": "unless-stopped",
+      "ports": [
+        {
+          "container": "443/tcp",
+          "host": [
+            {
+              "ip": "0.0.0.0",
+              "port": "443"
+            },
+            {
+              "ip": "::",
+              "port": "443"
+            }
+          ]
+        },
+        {
+          "container": "80/tcp",
+          "host": [
+            {
+              "ip": "0.0.0.0",
+              "port": "80"
+            },
+            {
+              "ip": "::",
+              "port": "80"
+            }
+          ]
+        }
+      ],
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "${PROJECT_SOURCE}/infra/prod/nginx/nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "${LETSENCRYPT}",
+          "destination": "/etc/letsencrypt",
+          "read_only": true
+        }
+      ],
+      "networks": [
+        "project_melly-network"
+      ]
+    },
+    {
+      "name": "portainer",
+      "image": "portainer/portainer-ce:latest",
+      "image_id": "sha256:f6bc23d1695530a609563fd65c180aaafec0fc02e019d5fc63d16b6fbe83addd",
+      "status": "running",
+      "health": null,
+      "restart_policy": "unless-stopped",
+      "ports": [
+        {
+          "container": "8000/tcp",
+          "host": []
+        },
+        {
+          "container": "9000/tcp",
+          "host": [
+            {
+              "ip": "127.0.0.1",
+              "port": "9000"
+            }
+          ]
+        },
+        {
+          "container": "9443/tcp",
+          "host": [
+            {
+              "ip": "0.0.0.0",
+              "port": "9443"
+            },
+            {
+              "ip": "::",
+              "port": "9443"
+            }
+          ]
+        }
+      ],
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "${DOCKER_SOCKET}",
+          "destination": "/var/run/docker.sock",
+          "read_only": false
+        },
+        {
+          "type": "bind",
+          "source": "${ZONEINFO}/Asia/Seoul",
+          "destination": "/etc/localtime",
+          "read_only": true
+        },
+        {
+          "type": "volume",
+          "source": "${DOCKER_VOLUMES}/portainer_data/_data",
+          "destination": "/data",
+          "read_only": false
+        }
+      ],
+      "networks": [
+        "project_melly-network"
+      ]
+    },
+    {
+      "name": "redis",
+      "image": "redis:7.4-alpine",
+      "image_id": "sha256:6ab0b6e7381779332f97b8ca76193e45b0756f38d4c0dcda72dbb3c32061ab99",
+      "status": "running",
+      "health": "healthy",
+      "restart_policy": "unless-stopped",
+      "ports": [
+        {
+          "container": "6379/tcp",
+          "host": []
+        }
+      ],
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "${PROJECT_ROOT}/redis/data",
+          "destination": "/data",
+          "read_only": false
+        }
+      ],
+      "networks": [
+        "project_melly-network"
+      ]
+    }
+  ]
+}

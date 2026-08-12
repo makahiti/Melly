@@ -1,0 +1,14 @@
+{
+  "captured_at_utc": "2026-08-12T03:05:11Z",
+  "kernel": "Linux 6.17.0-1017-aws x86_64 GNU/Linux",
+  "os": {
+    "name": "Ubuntu",
+    "version": "24.04.3 LTS (Noble Numbat)",
+    "version_id": "24.04"
+  },
+  "docker": "29.6.1",
+  "docker_compose": "5.3.1",
+  "cpu_count": 4,
+  "memory_bytes": 16763965440,
+  "root_filesystem_bytes": 331712798720
+}
