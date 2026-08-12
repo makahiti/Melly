@@ -1,0 +1,42 @@
+{
+  "captured_at_utc": "2026-08-12T03:06:15Z",
+  "categories": {
+    "attachments": {
+      "file_count": 17,
+      "total_bytes": 24116693,
+      "by_extension": [
+        {
+          "extension": ".jpg",
+          "file_count": 3,
+          "total_bytes": 18868
+        },
+        {
+          "extension": ".png",
+          "file_count": 14,
+          "total_bytes": 24097825
+        }
+      ]
+    },
+    "uploads": {
+      "file_count": 122,
+      "total_bytes": 1973361843,
+      "by_extension": [
+        {
+          "extension": ".json",
+          "file_count": 38,
+          "total_bytes": 12134
+        },
+        {
+          "extension": ".mp4",
+          "file_count": 52,
+          "total_bytes": 1381878660
+        },
+        {
+          "extension": ".webm",
+          "file_count": 32,
+          "total_bytes": 591471049
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,788 @@
+{
+  "captured_at_utc": "2026-08-12T03:06:48.864451Z",
+  "source": "SSAFY GitLab mirror backup",
+  "sanitization": "Three active API key values were replaced in historical blobs before GitHub migration. Commit SHAs changed; file trees are compared per branch.",
+  "branch_count": 46,
+  "all_branch_trees_identical": false,
+  "branches": [
+    {
+      "name": "ai/dev",
+      "gitlab_sha": "8833bcd598149cc47415074fd5e32eed054cb6b8",
+      "github_sha": "19ce681826c937b60fd8d35330388351914e3f23",
+      "gitlab_tree": "bcd20e18e5e6dbb48d951f0abe2094e0a6d3f797",
+      "github_tree": "bcd20e18e5e6dbb48d951f0abe2094e0a6d3f797",
+      "tree_identical": true
+    },
+    {
+      "name": "ai/main",
+      "gitlab_sha": "d6de2fc539b8aeacff316992e5c32aad5031c48b",
+      "github_sha": "d6de2fc539b8aeacff316992e5c32aad5031c48b",
+      "gitlab_tree": "bb0992eafeb791f2d399a628fd9d8bd255a56158",
+      "github_tree": "bb0992eafeb791f2d399a628fd9d8bd255a56158",
+      "tree_identical": true
+    },
+    {
+      "name": "backup/lab-before-stabilization-20260802",
+      "gitlab_sha": "d234acb69cc556ce77b9027532f0aa8cfe473bc8",
+      "github_sha": "ef229ebb6124fbed126ea1ad4df044340f270303",
+      "gitlab_tree": "3eb71e52d3adacd88509d4cbb6a615dea4382b2c",
+      "github_tree": "3eb71e52d3adacd88509d4cbb6a615dea4382b2c",
+      "tree_identical": true
+    },
+    {
+      "name": "be/dev",
+      "gitlab_sha": "7afc74c43aa841ce971e16f08861883e064a8d93",
+      "github_sha": "c503ff9ab6cd3194f1c4c3d80ddbee62c442cd08",
+      "gitlab_tree": "f9a8414d07fb818c2abdfabaeeca5e2a3b32adc5",
+      "github_tree": "f9a8414d07fb818c2abdfabaeeca5e2a3b32adc5",
+      "tree_identical": true
+    },
+    {
+      "name": "be/main",
+      "gitlab_sha": "7afc74c43aa841ce971e16f08861883e064a8d93",
+      "github_sha": "c503ff9ab6cd3194f1c4c3d80ddbee62c442cd08",
+      "gitlab_tree": "f9a8414d07fb818c2abdfabaeeca5e2a3b32adc5",
+      "github_tree": "f9a8414d07fb818c2abdfabaeeca5e2a3b32adc5",
+      "tree_identical": true
+    },
+    {
+      "name": "chore/sync-master-infra-to-infra-develop",
+      "gitlab_sha": "04e308a4e6b3ee6e01f0831d5c21071d3031f666",
+      "github_sha": "04e308a4e6b3ee6e01f0831d5c21071d3031f666",
+      "gitlab_tree": "16d98661e58f77dcece5f20e0c6c7e935371f851",
+      "github_tree": "16d98661e58f77dcece5f20e0c6c7e935371f851",
+      "tree_identical": true
+    },
+    {
+      "name": "docs/common/project-docs",
+      "gitlab_sha": "78381d3e5f452711d05f5370ded3ffb8919109ef",
+      "github_sha": "78381d3e5f452711d05f5370ded3ffb8919109ef",
+      "gitlab_tree": "747b872fdadf28937554b48d7eeaeda2a115be3a",
+      "github_tree": "747b872fdadf28937554b48d7eeaeda2a115be3a",
+      "tree_identical": true
+    },
+    {
+      "name": "docs/fe-sync-contirbutingreadme",
+      "gitlab_sha": "8ecc09a2a404bd529cc11cc7af5822ee88cc29ca",
+      "github_sha": "8ecc09a2a404bd529cc11cc7af5822ee88cc29ca",
+      "gitlab_tree": "747b872fdadf28937554b48d7eeaeda2a115be3a",
+      "github_tree": "747b872fdadf28937554b48d7eeaeda2a115be3a",
+      "tree_identical": true
+    },
+    {
+      "name": "fe/dev",
+      "gitlab_sha": "113c687de71b177b8281fd5ad47dc28c97c499b1",
+      "github_sha": "f47ce1cc66da8fb7edb86d498885978ec090e64f",
+      "gitlab_tree": "9eb1cdea1ede555d3df0085d800180e3ed3d53b7",
+      "github_tree": "9eb1cdea1ede555d3df0085d800180e3ed3d53b7",
+      "tree_identical": true
+    },
+    {
+      "name": "fe/main",
+      "gitlab_sha": "959dca9d9cf59d1340a9d505c8c69a73733e64c0",
+      "github_sha": "959dca9d9cf59d1340a9d505c8c69a73733e64c0",
+      "gitlab_tree": "36e394c9c698b3663c07232a9106b159b5094182",
+      "github_tree": "36e394c9c698b3663c07232a9106b159b5094182",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/ai/AI_Translation",
+      "gitlab_sha": "9f5ff855b5bfb6d41d5a6efc2d3252dd3eabf060",
+      "github_sha": "d521cb5075aacb9ae5d894ce27aae3fe9095ff2e",
+      "gitlab_tree": "0641b2de0290043f9eb966cd9fb23ac85c612bf4",
+      "github_tree": "c71d5980fbf32006d2ea79ddd4071c235f3f17d0",
+      "tree_identical": false
+    },
+    {
+      "name": "feature/ai/AI_Translation-test",
+      "gitlab_sha": "91565cabc78b24354c7895688d06cf21ddda8a41",
+      "github_sha": "d6f58ad5bdfe00b6284985720950d918f9fcc4d1",
+      "gitlab_tree": "c1bbf8d476b3fa99d6cf63ae25255cb31ac8868e",
+      "github_tree": "04f3edfcd03f17f85716010990889ef0b9a4e99d",
+      "tree_identical": false
+    },
+    {
+      "name": "feature/backend/0804",
+      "gitlab_sha": "6b97894732260b302dec481274558fb436f7ef2f",
+      "github_sha": "e2187eb943254815e47647590afc83897e42c776",
+      "gitlab_tree": "079cd7f482516ed4a972aa3bb581874186b42d8b",
+      "github_tree": "079cd7f482516ed4a972aa3bb581874186b42d8b",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/0805",
+      "gitlab_sha": "8e839476e336dd014b445c385af2a869b4510778",
+      "github_sha": "27f368235b4f26b563772ad41378120d0075882a",
+      "gitlab_tree": "fdeb5335fc3f0bce267ef8dffe266804dc5c5a03",
+      "github_tree": "fdeb5335fc3f0bce267ef8dffe266804dc5c5a03",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/advance",
+      "gitlab_sha": "8a0cee4191071713c3367fbb0d221eda44fbb0cd",
+      "github_sha": "98449e9e9c24e19ed98198d8dd68a9d4eb4fb9b0",
+      "gitlab_tree": "9cb0e5836f176a591bf992bb8b9a301660062cf4",
+      "github_tree": "9cb0e5836f176a591bf992bb8b9a301660062cf4",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/ai-user-discovery",
+      "gitlab_sha": "c96e2864bd0f7b63e17343db01a8c096b23cde8f",
+      "github_sha": "778b8dffc22ae75f7d1ffc9f1d79a5652f35f9a9",
+      "gitlab_tree": "d705742995b0d7b490c3e24bffff0ba9c5fe8fd1",
+      "github_tree": "d705742995b0d7b490c3e24bffff0ba9c5fe8fd1",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/backai",
+      "gitlab_sha": "cf65d50e7d6ebb0f4cd084aa90ba01c771f35466",
+      "github_sha": "900d7d16c08df19b77b110be802fff22d1538517",
+      "gitlab_tree": "fc75811e0657604cc276da83e0d07f92cae92d44",
+      "github_tree": "092eb898f6d269d60487ea4a2e5498c1c51ae6ac",
+      "tree_identical": false
+    },
+    {
+      "name": "feature/backend/common-auth",
+      "gitlab_sha": "a2971804b78da94a9008b586faa5d3748f458fed",
+      "github_sha": "a2971804b78da94a9008b586faa5d3748f458fed",
+      "gitlab_tree": "a6d10a7d41380ac111b321a8a979a232093ee12a",
+      "github_tree": "a6d10a7d41380ac111b321a8a979a232093ee12a",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/community-completion",
+      "gitlab_sha": "ba0637e06f8e8aef2d780d5478dc8497403b994d",
+      "github_sha": "8606a81ee00008c27b0473ef78881ffa6e8060a9",
+      "gitlab_tree": "d68ce67509041ba9b3c5e2863936655b5be9682c",
+      "github_tree": "d68ce67509041ba9b3c5e2863936655b5be9682c",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/create-meeting",
+      "gitlab_sha": "574160d3d2e2a2feeec0caabe9eb38659569c2fe",
+      "github_sha": "574160d3d2e2a2feeec0caabe9eb38659569c2fe",
+      "gitlab_tree": "95196a8a983080fa5e11fa3b6ef68f2a39b803d2",
+      "github_tree": "95196a8a983080fa5e11fa3b6ef68f2a39b803d2",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/fix",
+      "gitlab_sha": "980efe97f25fc52cd39c062f97a83868ba1c2c34",
+      "github_sha": "7bb0ccb05620d33f5b6597c41bcd7d09cf936285",
+      "gitlab_tree": "3d5d725c8d475f9e67ec647362325d11ab62a259",
+      "github_tree": "3d5d725c8d475f9e67ec647362325d11ab62a259",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/livekit-room",
+      "gitlab_sha": "48b8baf211403dad10ff21b5995fcc8cea281b15",
+      "github_sha": "71fd43d04109935fa4cad5f79e7be84b43089676",
+      "gitlab_tree": "fc75811e0657604cc276da83e0d07f92cae92d44",
+      "github_tree": "092eb898f6d269d60487ea4a2e5498c1c51ae6ac",
+      "tree_identical": false
+    },
+    {
+      "name": "feature/backend/livekit-token",
+      "gitlab_sha": "6605bd016590e2c5366e98e8d936085a1306c766",
+      "github_sha": "6605bd016590e2c5366e98e8d936085a1306c766",
+      "gitlab_tree": "913e5184911012ee2497ee50e70b26701f4e86d6",
+      "github_tree": "913e5184911012ee2497ee50e70b26701f4e86d6",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/livekit-video-call",
+      "gitlab_sha": "f01f4a36c30d1e4786a2c4db87dec9ee6ad8771b",
+      "github_sha": "f01f4a36c30d1e4786a2c4db87dec9ee6ad8771b",
+      "gitlab_tree": "0ece48413971af228f306630e94ac5d403bbd662",
+      "github_tree": "0ece48413971af228f306630e94ac5d403bbd662",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/login",
+      "gitlab_sha": "e51d6396cb1653c240394eb919d2553211a3ebe3",
+      "github_sha": "e51d6396cb1653c240394eb919d2553211a3ebe3",
+      "gitlab_tree": "87e85d86b83dfda539fc99cc6a373ce78bb70dd4",
+      "github_tree": "87e85d86b83dfda539fc99cc6a373ce78bb70dd4",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/meetingentity",
+      "gitlab_sha": "d43898748cb07624cc007b887bce7523ee85cff5",
+      "github_sha": "d43898748cb07624cc007b887bce7523ee85cff5",
+      "gitlab_tree": "c91443202621509e64a46094407ebdd3c590ffb6",
+      "github_tree": "c91443202621509e64a46094407ebdd3c590ffb6",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/memo",
+      "gitlab_sha": "45097e9a1bb8f7909c3dd62a08b9451cd97e73f3",
+      "github_sha": "0e556578a9a5b8f340eaebfbd097bfe8e3b5f4ef",
+      "gitlab_tree": "7c8255b84838448e4b253562b379cc8d9f9ca0f9",
+      "github_tree": "7c8255b84838448e4b253562b379cc8d9f9ca0f9",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/muti-session",
+      "gitlab_sha": "547a85c2f50680a25bb7c4ea56defed928671c91",
+      "github_sha": "528106d2039cf8b5c8b751e1703cb14743ab3167",
+      "gitlab_tree": "a19e04ea06c2471dda76cf41742c20252c6e279c",
+      "github_tree": "a19e04ea06c2471dda76cf41742c20252c6e279c",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/recording-storage",
+      "gitlab_sha": "2c3adbcf407a5c6f51b27d3e69f8a9712bc9e2cf",
+      "github_sha": "fb4bbe04a8b8a1782ea3608173142af6334a1f04",
+      "gitlab_tree": "f640beb1d1d60c402ab4b246abeb5e66988678fc",
+      "github_tree": "f640beb1d1d60c402ab4b246abeb5e66988678fc",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/redis",
+      "gitlab_sha": "69f0a9b850e3ed3c7fad938eecc68bab74c788b0",
+      "github_sha": "69f0a9b850e3ed3c7fad938eecc68bab74c788b0",
+      "gitlab_tree": "13c64ad0e5cd41d5c5275e67e46ea0c8bfb48ba3",
+      "github_tree": "13c64ad0e5cd41d5c5275e67e46ea0c8bfb48ba3",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/server-livekit",
+      "gitlab_sha": "889b6551c0ce13f60ec8510216ac58ad7ae8ef77",
+      "github_sha": "e7ced9387bf5daac831346796efa3fc6a78f1c84",
+      "gitlab_tree": "dcf7f354f677e86ace67dc7c1818463320c4be43",
+      "github_tree": "dcf7f354f677e86ace67dc7c1818463320c4be43",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/signup",
+      "gitlab_sha": "a22f6d13828679f58fe54cebc6d98d51ceee4b02",
+      "github_sha": "a22f6d13828679f58fe54cebc6d98d51ceee4b02",
+      "gitlab_tree": "ae7ad2e2ad1e377aeffd851a222cc4c3825f48a0",
+      "github_tree": "ae7ad2e2ad1e377aeffd851a222cc4c3825f48a0",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/backend/update-webrtc",
+      "gitlab_sha": "c021e3ba63dac4f2e359e60e3bff654d24a8fa0e",
+      "github_sha": "a15b306ec54fefe61d2b0b2dee403a489e7b2ab7",
+      "gitlab_tree": "9e5094a1b295eea943920a4e5c8bafbeb92d6ac1",
+      "github_tree": "9e5094a1b295eea943920a4e5c8bafbeb92d6ac1",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/fe/J-260801",
+      "gitlab_sha": "2ead075796d4ca96a982662b90a5129afa268464",
+      "github_sha": "2ead075796d4ca96a982662b90a5129afa268464",
+      "gitlab_tree": "67f8d32bcc9ec2a5775cf0eead990835f76a6744",
+      "github_tree": "67f8d32bcc9ec2a5775cf0eead990835f76a6744",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/fe/J-260805",
+      "gitlab_sha": "267e48a3eb57b5ff108225156b42d70787ed0ef6",
+      "github_sha": "267e48a3eb57b5ff108225156b42d70787ed0ef6",
+      "gitlab_tree": "d95e3ee56343b3f13b516cf9d9a4cf90edbe7fe0",
+      "github_tree": "d95e3ee56343b3f13b516cf9d9a4cf90edbe7fe0",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/fe/J-260806",
+      "gitlab_sha": "1a56ddbce66cd6cebb7e6d7078eb10fab502ca32",
+      "github_sha": "155b1fa2a597d65340e70aceb328e160d1087a14",
+      "gitlab_tree": "4c06ee466b0aad584b33b8065c4b4a2d0f3a4069",
+      "github_tree": "4c06ee466b0aad584b33b8065c4b4a2d0f3a4069",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/fe/J-260807",
+      "gitlab_sha": "eb59d462244cd4e60f6e3a4d527c62d5ed600a3d",
+      "github_sha": "536365298253dcd4b84ca17644c15ab9d0ebbfbd",
+      "gitlab_tree": "6351477c95b106c3ebabcefffb3c46d617ccc4ec",
+      "github_tree": "6351477c95b106c3ebabcefffb3c46d617ccc4ec",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/fe/J-260809",
+      "gitlab_sha": "d0ba29b403ca6dd7ab3469dda1a03a29b30b341f",
+      "github_sha": "821b77e01cdcff8d6f2240d9e222219905e18588",
+      "gitlab_tree": "9eb1cdea1ede555d3df0085d800180e3ed3d53b7",
+      "github_tree": "9eb1cdea1ede555d3df0085d800180e3ed3d53b7",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/frontend/backtest",
+      "gitlab_sha": "f591a903c4e6cf3042c0a02b0e2a79669bc85c12",
+      "github_sha": "f591a903c4e6cf3042c0a02b0e2a79669bc85c12",
+      "gitlab_tree": "23bbf47e1528c1b69c61ac9173ea148c54d536f5",
+      "github_tree": "23bbf47e1528c1b69c61ac9173ea148c54d536f5",
+      "tree_identical": true
+    },
+    {
+      "name": "feature/update_webrtc",
+      "gitlab_sha": "d0eaa1f15f927339e66c0e9b7c2ab2d783253fed",
+      "github_sha": "d0eaa1f15f927339e66c0e9b7c2ab2d783253fed",
+      "gitlab_tree": "bf8bf7c11b848d5b910bf07f8f5e56ad636f4faa",
+      "github_tree": "bf8bf7c11b848d5b910bf07f8f5e56ad636f4faa",
+      "tree_identical": true
+    },
+    {
+      "name": "fix/infra/deploy-env-path",
+      "gitlab_sha": "6e81baffbfd09171b4901fd9bd13e38788f18d4b",
+      "github_sha": "9ebca7e82cba1a9a533bc16a59061520ea11ded5",
+      "gitlab_tree": "abc260b858ac1fd662927bb5baeef5a2ec923b75",
+      "github_tree": "f6593ee2af03357a1b4d60faeb4221356101ad45",
+      "tree_identical": false
+    },
+    {
+      "name": "infra/dev",
+      "gitlab_sha": "d6de2fc539b8aeacff316992e5c32aad5031c48b",
+      "github_sha": "d6de2fc539b8aeacff316992e5c32aad5031c48b",
+      "gitlab_tree": "bb0992eafeb791f2d399a628fd9d8bd255a56158",
+      "github_tree": "bb0992eafeb791f2d399a628fd9d8bd255a56158",
+      "tree_identical": true
+    },
+    {
+      "name": "infra/main",
+      "gitlab_sha": "d6de2fc539b8aeacff316992e5c32aad5031c48b",
+      "github_sha": "d6de2fc539b8aeacff316992e5c32aad5031c48b",
+      "gitlab_tree": "bb0992eafeb791f2d399a628fd9d8bd255a56158",
+      "github_tree": "bb0992eafeb791f2d399a628fd9d8bd255a56158",
+      "tree_identical": true
+    },
+    {
+      "name": "lab",
+      "gitlab_sha": "b9f1cc3d9d857c5273ee39b24e6cb1208e9472e1",
+      "github_sha": "dbe592f73d38f4a7b325227ef780743def2cd631",
+      "gitlab_tree": "b6f5ce0df3e96cb246763900a5bac4874f1bcc95",
+      "github_tree": "b6f5ce0df3e96cb246763900a5bac4874f1bcc95",
+      "tree_identical": true
+    },
+    {
+      "name": "lab2",
+      "gitlab_sha": "15cd8a7ba049b2e1e4c36524993e61105c11f622",
+      "github_sha": "b175655a0d284eb2f3271bb80ee35a306d39b7cd",
+      "gitlab_tree": "100698ebc1ce59a7433c8fd531cc7d670dba95b7",
+      "github_tree": "100698ebc1ce59a7433c8fd531cc7d670dba95b7",
+      "tree_identical": true
+    },
+    {
+      "name": "master",
+      "gitlab_sha": "4ea1317824dd929bba35a92c32e1380c7db13217",
+      "github_sha": "b4bedf9caa3d86a76412c12d55e55851d219577e",
+      "gitlab_tree": "b6f5ce0df3e96cb246763900a5bac4874f1bcc95",
+      "github_tree": "b6f5ce0df3e96cb246763900a5bac4874f1bcc95",
+      "tree_identical": true
+    }
+  ],
+  "merge_request_ref_count": 81,
+  "merge_request_refs": [
+    {
+      "merge_request_iid": 39,
+      "kind": "head",
+      "gitlab_sha": "757b1830855636ab2d6e1e53de666dbff7237f4a"
+    },
+    {
+      "merge_request_iid": 39,
+      "kind": "merge",
+      "gitlab_sha": "5d0abb51af4e92485765d1ab8371734e3c662afa"
+    },
+    {
+      "merge_request_iid": 40,
+      "kind": "head",
+      "gitlab_sha": "6a1bce3c7d809b8ad7168e0dafa372f803f92b92"
+    },
+    {
+      "merge_request_iid": 40,
+      "kind": "merge",
+      "gitlab_sha": "4e73ed148952e58f0887b3fc263dcc97975e2fc1"
+    },
+    {
+      "merge_request_iid": 41,
+      "kind": "head",
+      "gitlab_sha": "1b2ddf0bd672998b808a2c72f8642054c4d4c85a"
+    },
+    {
+      "merge_request_iid": 41,
+      "kind": "merge",
+      "gitlab_sha": "6ac4254b2ee8468236cc358d5fb4539470add3f4"
+    },
+    {
+      "merge_request_iid": 42,
+      "kind": "head",
+      "gitlab_sha": "bae5640cdc624011eb9ad40547c31d8615116d1a"
+    },
+    {
+      "merge_request_iid": 42,
+      "kind": "merge",
+      "gitlab_sha": "af09754452987691f1971f899df012bfb70d3d4e"
+    },
+    {
+      "merge_request_iid": 43,
+      "kind": "head",
+      "gitlab_sha": "c384be95ad6fd2513f93c50c39f3b25c070cb4cf"
+    },
+    {
+      "merge_request_iid": 43,
+      "kind": "merge",
+      "gitlab_sha": "db7de5f63698c817d91db91d88a3691b1930c054"
+    },
+    {
+      "merge_request_iid": 44,
+      "kind": "head",
+      "gitlab_sha": "898cc55afb366de49e39ef84aaa401325becec0d"
+    },
+    {
+      "merge_request_iid": 44,
+      "kind": "merge",
+      "gitlab_sha": "ff7116445564d2b74f4e9e030816d77c03f1f251"
+    },
+    {
+      "merge_request_iid": 45,
+      "kind": "head",
+      "gitlab_sha": "9d9eb7d94407c7a90c2dd31ec37779ab5a0c3136"
+    },
+    {
+      "merge_request_iid": 45,
+      "kind": "merge",
+      "gitlab_sha": "a4ecdfd58ca73997bce47ecd38e718b59443052e"
+    },
+    {
+      "merge_request_iid": 46,
+      "kind": "head",
+      "gitlab_sha": "310b546ad4b572c976b4bef4419027a789c9bb35"
+    },
+    {
+      "merge_request_iid": 46,
+      "kind": "merge",
+      "gitlab_sha": "109a41c9b891531c476c82b56e287e3a561e9deb"
+    },
+    {
+      "merge_request_iid": 47,
+      "kind": "head",
+      "gitlab_sha": "eb92af9d9b9ce73945569ae51dc915f9509160a5"
+    },
+    {
+      "merge_request_iid": 47,
+      "kind": "merge",
+      "gitlab_sha": "06585ca05d7ba9f520feddb7e4e55ec71f4680ff"
+    },
+    {
+      "merge_request_iid": 48,
+      "kind": "head",
+      "gitlab_sha": "bee4a1330ed56f22955814c88cb4273607d1790d"
+    },
+    {
+      "merge_request_iid": 48,
+      "kind": "merge",
+      "gitlab_sha": "17267ca36f35c71ceb499809ad2b82cf282d0db9"
+    },
+    {
+      "merge_request_iid": 49,
+      "kind": "head",
+      "gitlab_sha": "84e7b3c5db3815e8da268bc8d029864fc12636c7"
+    },
+    {
+      "merge_request_iid": 49,
+      "kind": "merge",
+      "gitlab_sha": "8601a711221781c50c8d7704780605db8610a3c6"
+    },
+    {
+      "merge_request_iid": 50,
+      "kind": "head",
+      "gitlab_sha": "2ead075796d4ca96a982662b90a5129afa268464"
+    },
+    {
+      "merge_request_iid": 50,
+      "kind": "merge",
+      "gitlab_sha": "ed950602f685791c540c0a55720f908942c21661"
+    },
+    {
+      "merge_request_iid": 51,
+      "kind": "head",
+      "gitlab_sha": "96e62afb28ffc300c872c998261805c9b2117c8d"
+    },
+    {
+      "merge_request_iid": 51,
+      "kind": "merge",
+      "gitlab_sha": "f0b0ad9397eb53d529fe98e13873b9897ad29150"
+    },
+    {
+      "merge_request_iid": 52,
+      "kind": "head",
+      "gitlab_sha": "422d2a027e0b5bfc9e07851b8e7ea408afba9224"
+    },
+    {
+      "merge_request_iid": 52,
+      "kind": "merge",
+      "gitlab_sha": "3e2132d8fa962f25e600515784fc35e7ed84a76d"
+    },
+    {
+      "merge_request_iid": 53,
+      "kind": "head",
+      "gitlab_sha": "209dec4813a866c54cbabbc0edf78be150215c60"
+    },
+    {
+      "merge_request_iid": 53,
+      "kind": "merge",
+      "gitlab_sha": "b28e37e267e1972652f42e38d5d68ad5b7ee584b"
+    },
+    {
+      "merge_request_iid": 54,
+      "kind": "head",
+      "gitlab_sha": "422d2a027e0b5bfc9e07851b8e7ea408afba9224"
+    },
+    {
+      "merge_request_iid": 54,
+      "kind": "merge",
+      "gitlab_sha": "07ef0975a17479aff22ee07110cfbe65284c792e"
+    },
+    {
+      "merge_request_iid": 55,
+      "kind": "head",
+      "gitlab_sha": "404e954d952d387e1b514a4b4de9b2c7667097e2"
+    },
+    {
+      "merge_request_iid": 55,
+      "kind": "merge",
+      "gitlab_sha": "df9f8ec58732d2a28c26e724199725cc72bba9a6"
+    },
+    {
+      "merge_request_iid": 56,
+      "kind": "head",
+      "gitlab_sha": "3c070123b3b630ff29dd59858abb176ebdddf74e"
+    },
+    {
+      "merge_request_iid": 56,
+      "kind": "merge",
+      "gitlab_sha": "57aa602d1e96dcb5e8afbe822aad82ea145b4a06"
+    },
+    {
+      "merge_request_iid": 57,
+      "kind": "head",
+      "gitlab_sha": "8c714c1e2bde07a777eaaea600f050ae39788235"
+    },
+    {
+      "merge_request_iid": 57,
+      "kind": "merge",
+      "gitlab_sha": "ce17fd9bedaa32ed839e937dca38d79c80c840a0"
+    },
+    {
+      "merge_request_iid": 58,
+      "kind": "head",
+      "gitlab_sha": "d3235408594e7d37cf4010c5d2f47aa3b484b234"
+    },
+    {
+      "merge_request_iid": 58,
+      "kind": "merge",
+      "gitlab_sha": "cc8b5940ba7b1a8244c00c1b115ddd0dc4223b96"
+    },
+    {
+      "merge_request_iid": 59,
+      "kind": "head",
+      "gitlab_sha": "fbdd1e526a5122635b61af6a3e441fa67a65a03f"
+    },
+    {
+      "merge_request_iid": 59,
+      "kind": "merge",
+      "gitlab_sha": "018cd288af40377013ab821d0e8632dcd22c9bc3"
+    },
+    {
+      "merge_request_iid": 60,
+      "kind": "head",
+      "gitlab_sha": "6e15b13e2de57f0f770729dacd02ed3b3a15e98c"
+    },
+    {
+      "merge_request_iid": 60,
+      "kind": "merge",
+      "gitlab_sha": "a9bf584ce3a9efc0bc761551aacc0d451f75ecfa"
+    },
+    {
+      "merge_request_iid": 61,
+      "kind": "head",
+      "gitlab_sha": "c62460b6224970c93ef6e9140564d0b51a3b2aee"
+    },
+    {
+      "merge_request_iid": 61,
+      "kind": "merge",
+      "gitlab_sha": "7874938f79b28542f46f2a46ad1d2af7c55c88cd"
+    },
+    {
+      "merge_request_iid": 62,
+      "kind": "head",
+      "gitlab_sha": "45bef7e4a2edf9dbd51abf13f547685c1ec24e14"
+    },
+    {
+      "merge_request_iid": 62,
+      "kind": "merge",
+      "gitlab_sha": "7692b34943fbadfb72b5ad2ca1ec28ebf113077e"
+    },
+    {
+      "merge_request_iid": 63,
+      "kind": "head",
+      "gitlab_sha": "4251e73517ae5cd5f7192ba4155c3180887fba19"
+    },
+    {
+      "merge_request_iid": 63,
+      "kind": "merge",
+      "gitlab_sha": "0ae6152476356181251857e87e57caec016e2750"
+    },
+    {
+      "merge_request_iid": 64,
+      "kind": "head",
+      "gitlab_sha": "577d5cebabe014ad9f6c422ec1126953e206dc0d"
+    },
+    {
+      "merge_request_iid": 65,
+      "kind": "head",
+      "gitlab_sha": "543d0bb5d886cc29f7c3b4f68e6fe180c0f42a0e"
+    },
+    {
+      "merge_request_iid": 65,
+      "kind": "merge",
+      "gitlab_sha": "08c3000da06c1d6ea89adcb635a3962c26a85f2e"
+    },
+    {
+      "merge_request_iid": 66,
+      "kind": "head",
+      "gitlab_sha": "091be9d4b1b3fa276f223ae9bc72458e35f34171"
+    },
+    {
+      "merge_request_iid": 66,
+      "kind": "merge",
+      "gitlab_sha": "ce7e1d1057905f37727b881a7509c364120b1f88"
+    },
+    {
+      "merge_request_iid": 67,
+      "kind": "head",
+      "gitlab_sha": "b74e8558ad93aef5bad1afe8e349db23757ab3c5"
+    },
+    {
+      "merge_request_iid": 67,
+      "kind": "merge",
+      "gitlab_sha": "cf0215f14dbbaf62a52f27946bada8e0ee1e3482"
+    },
+    {
+      "merge_request_iid": 68,
+      "kind": "head",
+      "gitlab_sha": "0f09cecef4f3d1b5b25093b2bdfe37f3f01391ce"
+    },
+    {
+      "merge_request_iid": 68,
+      "kind": "merge",
+      "gitlab_sha": "9815e08811a23bb0a30a242636145737f2b364e3"
+    },
+    {
+      "merge_request_iid": 69,
+      "kind": "head",
+      "gitlab_sha": "267e48a3eb57b5ff108225156b42d70787ed0ef6"
+    },
+    {
+      "merge_request_iid": 69,
+      "kind": "merge",
+      "gitlab_sha": "84d6b73b4be74e68c7378c30c7849c79e57c9bc9"
+    },
+    {
+      "merge_request_iid": 70,
+      "kind": "head",
+      "gitlab_sha": "7ae6769a8d98796b4496edb88e4916d6a62b1ddd"
+    },
+    {
+      "merge_request_iid": 70,
+      "kind": "merge",
+      "gitlab_sha": "6490e2f1e3654f7d849cc9171b5f15c2f1f47260"
+    },
+    {
+      "merge_request_iid": 71,
+      "kind": "head",
+      "gitlab_sha": "9d8d3fcde3e00ca2ef8449261dd014e7eea0daf6"
+    },
+    {
+      "merge_request_iid": 71,
+      "kind": "merge",
+      "gitlab_sha": "58a271e01a67b10651a66d9d67e67dbe4075bd4e"
+    },
+    {
+      "merge_request_iid": 72,
+      "kind": "head",
+      "gitlab_sha": "5bfb7edd2017152ecfbc50a3ca79f14b66530bee"
+    },
+    {
+      "merge_request_iid": 72,
+      "kind": "merge",
+      "gitlab_sha": "f28e2ee7c66ce1e791310481dc710ab9fa2818a0"
+    },
+    {
+      "merge_request_iid": 73,
+      "kind": "head",
+      "gitlab_sha": "bdc7fa0a9968f95d2bc467805abdeee81a8864a4"
+    },
+    {
+      "merge_request_iid": 73,
+      "kind": "merge",
+      "gitlab_sha": "4bda9f78bfa96fea2f08d288e4a6b8ebc3882032"
+    },
+    {
+      "merge_request_iid": 74,
+      "kind": "head",
+      "gitlab_sha": "c3a8a9ecc3766338d902fdbe739d23141f81d8d8"
+    },
+    {
+      "merge_request_iid": 74,
+      "kind": "merge",
+      "gitlab_sha": "78613495fc0c55abb80ebe463839451f5fd89a07"
+    },
+    {
+      "merge_request_iid": 75,
+      "kind": "head",
+      "gitlab_sha": "1a56ddbce66cd6cebb7e6d7078eb10fab502ca32"
+    },
+    {
+      "merge_request_iid": 75,
+      "kind": "merge",
+      "gitlab_sha": "555ce2631dceb2240be54febcef728ec60ff505b"
+    },
+    {
+      "merge_request_iid": 76,
+      "kind": "head",
+      "gitlab_sha": "eb59d462244cd4e60f6e3a4d527c62d5ed600a3d"
+    },
+    {
+      "merge_request_iid": 76,
+      "kind": "merge",
+      "gitlab_sha": "0c84a71c5a7e29d9d49c481e961c8bd034c40caf"
+    },
+    {
+      "merge_request_iid": 77,
+      "kind": "head",
+      "gitlab_sha": "92197cddd524d6ab427fa0f00eaf84e2224c3f10"
+    },
+    {
+      "merge_request_iid": 77,
+      "kind": "merge",
+      "gitlab_sha": "a3612614ad6770843cc756f7673ce8e9a6fe201f"
+    },
+    {
+      "merge_request_iid": 78,
+      "kind": "head",
+      "gitlab_sha": "d0ba29b403ca6dd7ab3469dda1a03a29b30b341f"
+    },
+    {
+      "merge_request_iid": 78,
+      "kind": "merge",
+      "gitlab_sha": "e69a78d2f6c12e68c67e8023985a206a6059334f"
+    },
+    {
+      "merge_request_iid": 79,
+      "kind": "head",
+      "gitlab_sha": "113c687de71b177b8281fd5ad47dc28c97c499b1"
+    },
+    {
+      "merge_request_iid": 79,
+      "kind": "merge",
+      "gitlab_sha": "d5d89a1a1f15dfd86358da696dde42939ea66e67"
+    }
+  ],
+  "tag_count": 0,
+  "identical_branch_tree_count": 41,
+  "sanitized_branch_tree_count": 5
+}
